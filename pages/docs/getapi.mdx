@@ -1,0 +1,92 @@
+# API
+
+All of the get(API) Methods
+
+For Non Self host User : Before using the getAPI, Read this [Usage](#usage) before you can use it.
+
+## getVideo
+
+To get video from the hanime website
+>/getVideo?id=(HANIME SLUG or VIDEO ID)
+
+````vid
+{
+  "360": {
+    URL Stream
+  },
+  "480": {
+    URL Stream
+  },
+  "720": {
+    URL Stream
+  },
+  "1080": {
+    URL Stream
+  },
+  "downloadURL": "https://hanime.tv/downloads/<>",
+  "url": "https://hanime.tv//videos/hentai/(HANIME SLUG VIDEO)"
+}
+````
+
+:warning: Downloading 1080p is not possible yet, We might find the way to do it..
+
+## getInfo
+
+To get Information about Hanime Video
+>/getInfo?id=(HANIME SLUG or VIDEO ID)
+
+````info
+{
+  "description": "",
+  "downloadURL": "https://hanime.tv/downloads/<>",
+  "info": {
+    "alternatetitles": [
+      
+    ],
+    "brand": "",
+    "branduploads": "",
+    "censored": true,
+    "releasedate": "",
+    "uploaddate": "",
+    "views": "X views"
+  },
+  "tags": [
+    "swimsuit",
+    "harem",
+    "incest",
+    "creampie",
+    "hd",
+    "plot",
+    "school girl",
+    "big boobs",
+    "censored",
+    "blow job"
+  ],
+  "thumbnails": "https://git-covers.pages.dev/images/XX.png",
+  "video": "https://hanime.tv/videos/hentai/XX"
+}
+````
+
+## getLanding
+
+To get the latest update from Hanime
+
+> /getLanding
+Try for yourself
+
+:warning: They are all unorganize because it was fetch from /api/v8/landing
+
+## getComment
+
+````comt
+Soon
+````
+
+## getDownloadURL
+
+To get Download Hanime Video page
+>/getDownloadURL?id=(HANIME SLUG or VIDEO ID)
+
+````dlurl
+"downloadURL": "https://hanime.tv/downloads/<>"
+````
