@@ -1,0 +1,141 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Authentication
+
+Login to Hanime.tv by requesting /api/v8/session with the fake session token.
+
+For Non Self host User : Before using the AuthAPI, Read this [Usage](#usage) before you can use it.
+
+## /login
+
+To login your Hanime.tv Account :
+> /login?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+
+````login
+[
+    {
+        "env": {
+            For Mobile Application
+            }
+        },
+        "session_token": "Session Token",
+        "session_token_expire_time_unix": 1646577951,
+        "user": {
+            "sign_in_count": 538,
+            "id": 2621251,
+            "ip": "XX.XX.XX.XXX",
+            "slug": "username-0000",
+            "email": "example@mail.com",
+            "created_at": "2022-02-06T07:05:56.369Z",
+            "updated_at": "2022-02-06T14:45:51.949Z",
+            "name": "username",
+            "identity": "N/A",
+            "coins": 0,
+            "last_rewarded_ad_clicked_at": "2022-02-06T09:06:23.992Z",
+            "alt_subscription_period_start": "2021-10-22T14:55:43.326Z",
+            "alt_subscription_period_end": "2022-03-05T15:42:14.202Z",
+            "bt_subscription_plan": null,
+            "bt_subscription_created_at": null,
+            "bt_subscription_ended_at": null,
+            "bt_subscription_valid_until": null,
+            "is_bt_subscription_recurring": true,
+            "video_views": 146,
+            "video_views_length": 123758,
+            "number": "6969",
+            "discord_user_id": null,
+            "discord_username": null,
+            "discord_avatar_url": null,
+            "num_comments": 0,
+            "upvotes": 0,
+            "downvotes": 0,
+            "trust": 0,
+            "avatar_url": "https://static-assets-44d.pages.dev/images/default-avatars/58.png",
+            "is_admin": false,
+            "current_roles": [],
+            "alt_premium_status": "Active",
+            "bt_premium_status": "Active",
+            "is_able_to_access_premium": true,
+            "access_level": 0,
+            "effective_avatar_url": "https://static-assets-44d.pages.dev/images/default-avatars/58.png"
+        },
+        "user_setting": {
+            "id": 10000,
+            "user_id": 10000,
+            "is_using_htvmobile_external_player": false,
+            "playlist_item_display_mode": 0,
+            "images_channels": "[\"media\", \"nsfw-general\", \"furry\", \"futa\", \"yaoi\", \"yuri\", \"traps\", \"irl-3d\"]",
+            "primary_color": "#4caf50",
+            "preferred_height": 0
+        },
+        "user_search_option": {
+            "id": 10000,
+            "user_id": 10000,
+            "order_by": "likes",
+            "ordering": "desc",
+            "tags_match": "all",
+            "tags": [
+                  HENTAI TAGs
+            ],
+            "brands": [
+                  ALL BRANDs LIST
+            ],
+            "blacklisted_tags": [
+                  Blacklists Tag List
+            ]
+        },
+        "playlists": [
+                ALL PLAYLISTs INFO
+        ]
+    }
+]
+````
+
+## /login/summary
+
+To summary important info of your account :
+> /login/summary?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+
+````loginsum
+{
+  "all_video_views": 147, 
+  "avatar": "https://static-assets-44d.pages.dev/images/default-avatars/58.png", 
+  "coin": 29734, 
+  "email": "example@mail.com", 
+  "id": 10000, 
+  "name": "username", 
+  "premium_status": "Active", 
+  "slug": "username-0000"
+}
+````
+
+## /login/coins
+
+To get a coins from Hanime without installing app or clicking ads
+> /login/coins?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+
+````coin
+{
+ "rewarded_amount": XXX,
+ "message" : "You have successfully collected your coins"
+}
+````
+
+
+<Callout type="warning" emoji="⚠️">
+    This API CANNOT give you unlimited coins. The Hanime Server API allowed 3 hours per each request. !!!
+</Callout>
+
+
+
+## /login/req/body
+
+To login to your account with JSON body type :
+
+````body
+{
+    "email": "YOUR_HANIME_EMAIL",
+    "password": "YOUR_HANIME_PASSWORD"
+}
+````
+
+The results should be the same as the [Login](#login)

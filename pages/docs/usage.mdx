@@ -1,0 +1,26 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Usage
+
+If you plan to used this for your application, yes, you can.  
+It is free to use and you dont have to pay for it. But There is a rate limit for each routes.    
+
+**Daily Limits : Unlimited**
+
+| **Routes**      | **Rate Limits**    | **Methods** |
+|-----------------|--------------------|-------------|
+| /login          | 75 req per minute | GET          |
+| /login/summary  | 75 req per minute | GET          |
+| /login/coins    | 75 req per minute | GET          |
+| /getVideo       | 75 req per minute | GET          |
+| /getInfo        | 75 req per minute | GET          |
+| /getDownloadURL | 75 req per minute | GET          |
+| /getLanding     | 75 req per minute | GET          |
+| /getComment     | 75 req per minute | GET          |
+| /search         | 200 req per minute| POST         |
+
+<Callout type="warning" emoji="⚠️">
+  Bulk Request and Spam is not allowed. Please make sure to delay the request from your client side.  
+  If Too Much Request to the server, it would causes the cloudflare server to block IP.
+</Callout>
+
