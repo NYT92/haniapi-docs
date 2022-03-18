@@ -4,30 +4,30 @@ import Callout from 'nextra-theme-docs/callout'
 
 This API can use it to search for videos, description, tags, and more. You can sort the results with order_by request too.
 
-| Body Params | Description                          |
-|-------------|--------------------------------------|
-| search      | Search Title, Description, Tags, etc |
-| tags        | Find Video with tags [Tags](#tags)   |
-| brands      | Find all of brands [Brands](#brands) |
-| blacklist   | Exclude tags on search [Blacklist](#blacklists) |
-| order_by    | Sort all of the search [Order_by](#order)|
-| ordering    | Ascending and Descending search [Order_by](#order)|
-| page        | Get all pages search request (if the page have multiple page all of the array will start from 0 to 50+)|
+| Body Params | Description                                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------- |
+| search      | Search Title, Description, Tags, etc                                                                    |
+| tags        | Find Video with tags [Tags](#tags)                                                                      |
+| brands      | Find all of brands [Brands](#brands)                                                                    |
+| blacklist   | Exclude tags on search [Blacklist](#blacklists)                                                         |
+| order_by    | Sort all of the search [Order_by](#order)                                                               |
+| ordering    | Ascending and Descending search [Order_by](#order)                                                      |
+| page        | Get all pages search request (if the page have multiple page all of the array will start from 0 to 50+) |
 
 ## Using Body Params
 
 The reason that we use body params is because we want to make the search more flexible and easy to use. ALSO
-you wont waste your time to input the search query in the url.  
+you wont waste your time to input the search query in the url.
 
 <Callout>
   Those request can be blank and it still giving you search results.
 </Callout>
 
-For Non Self host User : Before using the search, Read this [Usage](#usage) before you can use it.
+For Non Self host User : Before using the search, Read this [Info](docs/info#usage) before you can use it.
 
 Body Params :
 
-````req
+```req
 {
     "search": "",
     "tags": [],
@@ -37,7 +37,27 @@ Body Params :
     "ordering": "",
     "page": 0
 }
-````
+```
+
+## Using Query Params
+
+If you are not using the body request, you can use the query parameters to get the search.  
+This routes is limited so you cannot add tag, blacklist and brands search
+
+<Callout>
+  Those request can be blank and it still giving you search results.
+</Callout>
+
+For Non Self host User : Before using the search, Read this [Info](docs/info#usage) before you can use it.
+
+> /search/req
+
+Available Query Parameters :
+
+> q= Search Query  
+> p= Page  
+> ordering=  Ordering from the search (asc or desc)  
+> order_by=  Order_by type of item
 
 ## Error
 
@@ -48,12 +68,11 @@ Check the body request before requesting to the server.
 
 ## Tags
 
-**The request is array type []**
+**The request is an array type []**
 
-This is all tags available in hanime.tv search.  
+This is all tags availanble in hanime.tv search.
 
-
-````tag
+```tag
 3D
 Ahegao
 Anal
@@ -120,7 +139,7 @@ Watersports
 X-Ray
 Yaoi
 Yuri
-````
+```
 
 ## Order
 
@@ -128,23 +147,22 @@ Search Order will help you find and sort all of the search results
 
 Order_by + Ordering Type lists :
 
-````order
+```order
 likes (asc/desc)
 created_at_unix (asc/desc)
 views (asc/desc)
 released_at_unix (asc/desc)
 title_sortable (asc/desc)
-````
+```
 
 ## Brands
 
-**The request is array type []**
+**The request is an array type []**
 
 All Hentai Brands available in hanime.tv  
 You can use it on the blacklist list.
 
-
-````brands
+```brands
 @ OZ37c-Binetsu
 Almond Collective
 Amour
@@ -211,9 +229,9 @@ Pink Pineapple
 Pinkbell
 Pixy Soft
 Pocomo Premium
-PoROProject 
-No.9Queen 
-BeeRabbit 
+PoROProject
+No.9Queen
+BeeRabbit
 GatesakamotoJ
 SANDWICHWORKS
 Schoolzoneseismic
@@ -222,9 +240,9 @@ SevenShadow Prod. Co.
 Shinyusha
 Showten
 Soft on Demand
-STARGATE3D 
+STARGATE3D
 Studio 9 Maiami
-Studio Akai 
+Studio Akai
 Shohosen
 Studio Deen
 Studio Fantasia
@@ -245,7 +263,7 @@ XCity
 Y.O.U.C.
 yosino
 ZIZ
-````
+```
 
 ## Blacklists
 

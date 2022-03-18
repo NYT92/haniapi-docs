@@ -6,11 +6,14 @@ This is my docs please read T_T
 
 Rest API links : <a href="https://hani.nsdev.ml">hani.nsdev.ml</a>
 
+All of the RESTAPI is rate-limited for each routes.  
+Want more information? Go To [Info](/docs/info#usage)
+
 ## Table of Contents
 
-- [Usage](/docs/usage)
+- [Information](/docs/info)
 - [Auth](/docs/authentication)
-- [API](/docs/api)
+- [API](/docs/getapi)
 - [Search](/docs/search)
 
 ## Available routes
@@ -18,10 +21,12 @@ Rest API links : <a href="https://hani.nsdev.ml">hani.nsdev.ml</a>
 Authentication API
 
 ````login
-/login
-/login/summary
-/login/coins
-/login/req/body
+/auth/login
+/auth/login/getsession
+/auth/login/summary
+/auth/login/coins
+/auth/login/body
+/auth/coins/body
 ````
 
 getAPI
@@ -30,12 +35,14 @@ getAPI
 /getDownloadURL
 /getInfo
 /getVideo
+/getVideo/premium
 /getLanding (unorganize)
-/getComment (soon)
+/getComment 
 ````
 
 Search API
 
 ````search
 /search
+/search/req
 ````

@@ -2,14 +2,21 @@ import Callout from 'nextra-theme-docs/callout'
 
 # Authentication
 
-Login to Hanime.tv by requesting /api/v8/session with the fake session token.
+Login from Hanime.tv by requesting /api/v8/session with the fake session token.
 
-For Non Self host User : Before using the AuthAPI, Read this [Usage](#usage) before you can use it.
+For Non Self host User : Before using the AuthAPI, Read this [Info](docs/info#usage) before you can use it.
 
-## /login
+## Update
+
+<Callout>
+    UPDATE : We have added the new authentication methods and update the auth routes.
+</Callout>
+
+
+## /auth/login
 
 To login your Hanime.tv Account :
-> /login?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+> /auth/login?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
 
 ````login
 [
@@ -90,10 +97,10 @@ To login your Hanime.tv Account :
 ]
 ````
 
-## /login/summary
+## /auth/login/summary
 
 To summary important info of your account :
-> /login/summary?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+> /auth/login/summary?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
 
 ````loginsum
 {
@@ -108,10 +115,10 @@ To summary important info of your account :
 }
 ````
 
-## /login/coins
+## /auth/login/coins
 
 To get a coins from Hanime without installing app or clicking ads
-> /login/coins?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+> /auth/login/coins?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
 
 ````coin
 {
@@ -120,14 +127,11 @@ To get a coins from Hanime without installing app or clicking ads
 }
 ````
 
-
 <Callout type="warning" emoji="⚠️">
     This API CANNOT give you unlimited coins. The Hanime Server API allowed 3 hours per each request. !!!
 </Callout>
 
-
-
-## /login/req/body
+## /auth/login/body
 
 To login to your account with JSON body type :
 
@@ -138,4 +142,36 @@ To login to your account with JSON body type :
 }
 ````
 
-The results should be the same as the [Login](#login)
+The results should be the same as the [Login](#authlogin)
+
+
+## /auth/coin/body
+
+To get coins from your account with JSON body type :
+
+````body
+{
+    "email": "YOUR_HANIME_EMAIL",
+    "password": "YOUR_HANIME_PASSWORD"
+}
+````
+
+The results should be the same as the [Coins](#authlogincoins)
+
+## /auth/login/getsession
+
+You can use /getsession to get your hanime account session_token for [Get Premium](/getapi#getvideopremium).  
+Becareful with your account session_token and never give anyone the token because thief might have used to hacked your account.   
+It will expire for 30 days or when the user requesting new session_token.
+
+> /auth/login/getsession?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
+
+````sess
+{
+            "Warning":"Please store the session token somewhere safe.",
+            "Info" : "1 Session token only vaild for 30 days. If you want to use it again, you need to request again.",
+            "session_token": "Session Token"
+}
+````
+
+The results should be the same as the [Coins](#authlogincoins)

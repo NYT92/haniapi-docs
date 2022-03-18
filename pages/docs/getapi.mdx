@@ -1,10 +1,12 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # API
 
 All of the get(API) Methods
 
-For Non Self host User : Before using the getAPI, Read this [Usage](#usage) before you can use it.
+For Non Self host User : Before using the getAPI, Read this [Info](docs/info#usage) before you can use it.
 
-## getVideo
+## /getVideo
 
 To get video from the hanime website
 >/getVideo?id=(HANIME SLUG or VIDEO ID)
@@ -27,8 +29,40 @@ To get video from the hanime website
   "url": "https://hanime.tv//videos/hentai/(HANIME SLUG VIDEO)"
 }
 ````
+## /getVideo/premium
 
-:warning: Downloading 1080p is not possible yet, We might find the way to do it..
+To get 1080p video from the hanime website, Use your account session_token to get the video
+
+<Callout type="warning" emoji="❌">
+  This method is not available for free user. You must require to buy Hanime.tv <a href="https://hanime.tv/premium">Premium</a> from your account to use this method.
+</Callout>
+
+To get account session_token go to [getSession](/docs/authentication/#authlogingetsession)
+
+>/getVideo/premium?id=(HANIME SLUG or VIDEO ID)  
+
+Before Requesting, Apply Token Key to the headers of the request.  
+
+>Headers: Token : XXXX
+
+````vid
+{
+  "360": {
+    URL Stream
+  },
+  "480": {
+    URL Stream
+  },
+  "720": {
+    URL Stream
+  },
+  "1080": {
+    ✔ 1080p Stream URL
+  },
+  "downloadURL": "https://hanime.tv/downloads/<>",
+  "url": "https://hanime.tv//videos/hentai/(HANIME SLUG VIDEO)"
+}
+````
 
 ## getInfo
 
@@ -69,18 +103,63 @@ To get Information about Hanime Video
 
 ## getLanding
 
-To get the latest update from Hanime
-
-> /getLanding
-Try for yourself
-
-:warning: They are all unorganize because it was fetch from /api/v8/landing
+Comming Soon........
 
 ## getComment
 
-````comt
-Soon
+To get comments from hanime.tv/videos/hentai/XX 
+
+**How is this work?**
+
+Normally you wont get the comments from hanime.tv without authenticating. However you can create a fake sessions with Python Secrets Moudule to generated a 32 key for the X-Signature header.
+
+> /getComment?id=(number)
+
+````rescmt
+{
+  "comments": [
+    {
+      All of the comments
+    }
+  ],
+  "info": {
+    "alternatetitles": [
+      "title"
+    ],
+    "brand": "",
+    "branduploads": "",
+    "censored": true,
+    "releasedate": "",
+    "uploaddate": "",
+    "views": "X views"
+  },
+  "total": {
+    "comments": {
+      "count": "X",
+      "my_hthreads_flags_hash": {},
+      "my_hthreads_votes_hash": {},
+      "offset": 0,
+      "order": [
+        {
+          "upvotes": "desc"
+        },
+        {
+          "created_at": "desc"
+        }
+      ],
+      "totals": {
+        "num_comments": X,
+        "num_threads": X
+      }
+    }
+  }
+}
 ````
+
+<Callout type="warning" emoji="❌">
+  Requesting It might fail because the text id wont work with this api. Please Use Number ID eg. 2930 Instead.
+</Callout>
+
 
 ## getDownloadURL
 

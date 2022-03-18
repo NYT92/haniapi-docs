@@ -1,0 +1,53 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Information
+
+## Usage
+
+If you plan to used this for your application, yes, you can.  
+It is free to use and you dont have to pay for it. But There is a rate limit for each routes.
+
+**Daily Limits : Unlimited**
+
+| **Routes**             | **Rate Limits**    | **Methods** |
+| ---------------------- | ------------------ | ----------- |
+| /auth/login            | 75 req per minute  | GET         |
+| /auth/login/summary    | 75 req per minute  | GET         |
+| /auth/login/coins      | 75 req per minute  | GET         |
+| /auth/login/getsession | 75 req per minute  | GET         |
+| /auth/login/body       | 75 req per minute  | POST        |
+| /auth/coins/body       | 75 req per minute  | POST        |
+| ---------------------- | -----------------  | ----------- |
+| /getVideo              | 75 req per minute  | GET         |
+| /getVideo/premium      | 75 req per minute  | GET         |
+| /getInfo               | 75 req per minute  | GET         |
+| /getDownloadURL        | 75 req per minute  | GET         |
+| /getLanding            | 75 req per minute  | GET         |
+| /getComment            | 75 req per minute  | GET         |
+| ---------------------- | -----------------  | ----------- |
+| /search                | 200 req per minute | POST        |
+| /search/req            | 200 req per minute | GET         |
+
+<Callout type="warning" emoji="⚠️">
+  Bulk Request and Spam is not allowed. Please make sure to delay the request
+  from your client side. If Too Much Request to the server, it would causes the
+  server to block the IP.
+</Callout>  
+
+## HTTP Response
+
+| **Status Code** | **Description**           |
+| --------------- | ------------------------- |
+| 200             | Success                   |
+| 401             | Unauthorized              |
+| 403             | Forbidden                 |
+| 404             | Not Found                 |
+| 500             | Internal Server Error     |
+| 503             | Hanime Server Unavailable |  
+
+## Disclaimer
+
+I am not using this for bad purposes or attacking the server. This is for education purposes and Also I am not affiliated with Hanime.tv.  
+This API is open source and you can use it for your own project.  
+
+If you causes some problem that make Hanime.tv website down, I am not responsible for it.
