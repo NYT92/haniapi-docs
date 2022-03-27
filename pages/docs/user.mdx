@@ -1,0 +1,92 @@
+# User (Beta)
+
+You can see your own or other account info and playlists from Hanime Channel.
+
+## /user
+
+*Require Session token from Hanime Account*
+
+To see your own account info and playlists from Hanime Channel, you need to get the session token from the account then requesting it with headers.
+
+**Headers**
+>Token : XXX
+
+````user
+{
+    "achievements": [
+        {
+            "created_at": "",
+            "granted_by_user_id": 0,
+            "icon_url": "",
+            "id": XXXXX,
+            "notes": null,
+            "title": "Member",
+            "updated_at": "",
+            "user_id": XXXXX
+        }
+    ],
+    "playlists": [
+        
+    ],
+    "user": {
+        "banner_url": null,
+        "created_at": "",
+        "description": "",
+        "id": XXXXX,
+        "intro_videos": null,
+        "location": "",
+        "slug": "",
+        "social_media": null,
+        "theme_color": null,
+        "title": "no",
+        "updated_at": "",
+        "user_id": XXXXX,
+        "views": XXXXX,
+        "website_url": null
+    }
+}
+````
+
+## /user/(channel_id)
+
+If you want to see other poeple channels, you can use this endpoint and this won't be requiring your session token.
+
+> /user/(hanime_user_slug)
+
+````cid
+{
+  "achievements": [
+    {
+      "created_at": "",
+      "granted_by_user_id": 0,
+      "icon_url": "https://cdn.discordapp.com/attachments/439404483647373332/439404503322853376/member_icon.png",
+      "id": XXXXX,
+      "notes": null,
+      "title": "Member",
+      "updated_at": "XXXXX",
+      "user_id": XXXXX
+    }
+  ],
+  "playlists": [
+    {
+      User Playlists
+    }
+  ],
+  "user": {
+    "banner_url": null,
+    "created_at": "",
+    "description": null,
+    "id": XXXXXX,
+    "intro_videos": null,
+    "location": null,
+    "slug": "XXX-XXX",
+    "social_media": null,
+    "theme_color": null,
+    "title": "XXXXX's Channel",
+    "updated_at": "",
+    "user_id": XXXXX,
+    "views": XXX,
+    "website_url": null
+  }
+}
+````

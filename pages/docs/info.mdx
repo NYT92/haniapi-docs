@@ -32,7 +32,41 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
   Bulk Request and Spam is not allowed. Please make sure to delay the request
   from your client side. If Too Much Request to the server, it would causes the
   server to block the IP.
-</Callout>  
+</Callout>
+
+## Usage (RapidAPI)
+
+You can now use RapidAPI to request API from the server without hosting your own one.
+
+**Read First** : This Service is limited and there will be no Auth method due to security issues.
+
+### Free Version
+
+**Monthly Usage** : 500 Per Month
+
+| **Routes**             | **Rate Limits**   | **Methods** |
+| ---------------------- | ----------------- | ----------- |
+| /getVideo              | 75 req per minute | GET         |
+| /getVideo/premium      | 75 req per minute | GET         |
+| /getInfo               | 75 req per minute | GET         |
+| /getComment            | 75 req per minute | GET         |
+| ---------------------- | ----------------- | ----------- |
+| /search                | 75 req per minute | POST        |
+| /search/req            | 75 req per minute | GET         |
+
+### Paid Version
+
+**Monthly Usage** : Unlimited
+
+| **Routes**             | **Rate Limits**    | **Methods** |
+| ---------------------- | ------------------ | ----------- |
+| /getVideo              | 250 req per minute | GET         |
+| /getVideo/premium      | 250 req per minute | GET         |
+| /getInfo               | 250 req per minute | GET         |
+| /getComment            | 250 req per minute | GET         |
+| ---------------------- | -----------------  | ----------- |
+| /search                | 250 req per minute | POST        |
+| /search/req            | 250 req per minute | GET         |
 
 ## HTTP Response
 
@@ -43,11 +77,11 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
 | 403             | Forbidden                 |
 | 404             | Not Found                 |
 | 500             | Internal Server Error     |
-| 503             | Hanime Server Unavailable |  
+| 503             | Server Offline            |
 
 ## Disclaimer
 
 I am not using this for bad purposes or attacking the server. This is for education purposes and Also I am not affiliated with Hanime.tv.  
-This API is open source and you can use it for your own project.  
+This API is open source and you can use it for your own project.
 
 If you causes some problem that make Hanime.tv website down, I am not responsible for it.

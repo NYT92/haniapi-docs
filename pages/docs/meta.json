@@ -3,5 +3,8 @@
     "info": "Information",
     "authentication": "Authentication",
     "getapi": "get-API",
-    "search":"Search"
+    "search":"Search",
+    "browse":"Browse",
+    "user":"User",
+    "community-upload":"Community Upload"
 }
