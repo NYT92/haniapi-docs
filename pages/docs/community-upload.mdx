@@ -1,3 +1,43 @@
 # Community Upload
 
-(Comming Soon)
+If you want to get community uploads from hanime home page, you can now..
+
+> /community_upload
+
+## Filtering
+
+You can filter the list with JSON body request
+
+Use empty string "" to exclude the results, 
+Use "true" bool to include to the results
+
+````req
+{
+    "page" : "0",
+    "media" : "true",
+    "nsfw" : "",
+    "furry" : "",
+    "futa" : "",
+    "yaoi" : "",
+    "yuri" : "",
+    "traps" : "",
+    "irl_3d" : "",
+}
+
+````
+
+The results should be
+
+````res
+{
+    data : [
+        All Community Upload Images or Videos
+    ]
+    meta: {
+        "count": XX,
+        "error": null,
+        "offset": 0,
+        "total": 1460781
+    }
+}
+````

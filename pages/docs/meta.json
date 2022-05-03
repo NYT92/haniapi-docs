@@ -1,6 +1,7 @@
 {
     "get-started": "Getting Started",
     "info": "Information",
+    "config":"Configuration",
     "authentication": "Authentication",
     "getapi": "get-API",
     "search":"Search",

@@ -9,81 +9,63 @@ For Non Self host User : Before using the getAPI, Read this [Info](docs/info#usa
 ## /getVideo
 
 To get video from the hanime website
->/getVideo?id=(HANIME SLUG or VIDEO ID)
 
-````vid
+> /getVideo?id=(HANIME SLUG or VIDEO ID)
+
+To get 1080p, You must add token to the headers and To get your account session token go to [getSession](/docs/authentication/#authlogingetsession)
+
+**Headers**
+> Token : (Your Account Token)
+
+```vid
 {
-  "360": {
-    URL Stream
-  },
-  "480": {
-    URL Stream
-  },
-  "720": {
-    URL Stream
-  },
-  "1080": {
-    URL Stream
-  },
+  "stream": [{
+    ALL Stream List
+  }]
   "downloadURL": "https://hanime.tv/downloads/<>",
   "url": "https://hanime.tv//videos/hentai/(HANIME SLUG VIDEO)"
 }
-````
-## /getVideo/premium
+```
 
-To get 1080p video from the hanime website, Use your account session_token to get the video
+## /getVideo/player
+
+Create an embedded iframe or player url in the api with [nsplayer](https://player.nscdn.ml)
 
 <Callout type="warning" emoji="❌">
-  This method is not available for free user. You must require to buy Hanime.tv <a href="https://hanime.tv/premium">Premium</a> from your account to use this method.
+  New Hanime Video Will be Work on this player but will not be available in the
+  older upload due to the CORS error. If you want it to work, you downloads any cors extension.
 </Callout>
 
-To get account session_token go to [getSession](/docs/authentication/#authlogingetsession)
+> /getVideo/player?id=(HANIME SLUG or VIDEO ID)
 
->/getVideo/premium?id=(HANIME SLUG or VIDEO ID)  
-
-Before Requesting, Apply Token Key to the headers of the request.  
-
->Headers: Token : XXXX
-
-````vid
+```vid
 {
-  "360": {
-    URL Stream
-  },
-  "480": {
-    URL Stream
-  },
-  "720": {
-    URL Stream
-  },
-  "1080": {
-    ✔ 1080p Stream URL
-  },
-  "downloadURL": "https://hanime.tv/downloads/<>",
-  "url": "https://hanime.tv//videos/hentai/(HANIME SLUG VIDEO)"
+  "downloadURL":"https://hanime.tv/downloads/<>",
+  "iframe_api":"iframe with player url",
+  "url":"https://hanime.tv/videos/hentai/<>"
+  "player_url": "player_url",
+  "main_url":"https://player.nscdn.ml"
 }
-````
+
+```
 
 ## getInfo
 
 To get Information about Hanime Video
->/getInfo?id=(HANIME SLUG or VIDEO ID)
 
-````info
+> /getInfo?id=(HANIME SLUG or VIDEO ID)
+
+```info
 {
   "description": "",
   "downloadURL": "https://hanime.tv/downloads/<>",
   "info": {
-    "alternatetitles": [
-      
-    ],
     "brand": "",
-    "branduploads": "",
     "censored": true,
-    "releasedate": "",
-    "uploaddate": "",
-    "views": "X views"
+    "released_date": "",
+    "uploaded_date": "",
   },
+  "views": "0,000,000"
   "tags": [
     "swimsuit",
     "harem",
@@ -96,43 +78,85 @@ To get Information about Hanime Video
     "censored",
     "blow job"
   ],
-  "thumbnails": "https://git-covers.pages.dev/images/XX.png",
+  "poster": "https://git-covers.pages.dev/images/XX.png",
   "video": "https://hanime.tv/videos/hentai/XX"
 }
-````
+```
 
 ## getLanding
 
-Comming Soon........
+Get information about landing in Hanime home page.
+
+### getLanding/recent
+
+> /getLanding/recent
+
+```recent
+{
+  page: 0,
+  results: [
+    All Recent List
+  ]
+}
+
+```
+
+### getLanding/newest
+
+> /getLanding/newest
+
+```newest
+{
+  page: 0,
+  results: [
+    All Newest List
+  ]
+}
+
+```
+
+### getLanding/trending
+
+> /getLanding/trending
+
+```trending
+{
+  page: 0,
+  results: [
+    All Trending List
+  ]
+}
+
+```
+
+The Default Results are Monthly but You can specify trending time from Daily to Yearly
+
+> /getLanding/trending?time=(day, week, month, 3_month, 6_month, year)&p=0
+
+And The Result should be the same as the previous result.
 
 ## getComment
 
-To get comments from hanime.tv/videos/hentai/XX 
+Get Comment from Hanime Video...
 
-**How is this work?**
+<Callout type="warning" emoji="❌">
+  Requesting It might fail because the slug wont work with this api. Please
+  Use ID eg. 2930 Instead.
+</Callout>
 
-Normally you wont get the comments from hanime.tv without authenticating. However you can create a fake sessions with Python Secrets Moudule to generated a 32 key for the X-Signature header.
+### getComment
+
+To get comments from hanime.tv/videos/hentai/XX
 
 > /getComment?id=(number)
 
-````rescmt
+```rescmt
 {
   "comments": [
     {
       All of the comments
     }
   ],
-  "info": {
-    "alternatetitles": [
-      "title"
-    ],
-    "brand": "",
-    "branduploads": "",
-    "censored": true,
-    "releasedate": "",
-    "uploaddate": "",
-    "views": "X views"
-  },
   "total": {
     "comments": {
       "count": "X",
@@ -154,18 +178,76 @@ Normally you wont get the comments from hanime.tv without authenticating. Howeve
     }
   }
 }
-````
+```
 
-<Callout type="warning" emoji="❌">
-  Requesting It might fail because the text id wont work with this api. Please Use Number ID eg. 2930 Instead.
-</Callout>
+### getComment/reply
 
+To get reply comments from hanime.tv/videos/hentai/XX
 
-## getDownloadURL
+> /getComment/reply?id=(reply_id)
 
-To get Download Hanime Video page
->/getDownloadURL?id=(HANIME SLUG or VIDEO ID)
+```rescmt
+{
+  "comments": [
+    {
+      All of the comments
+    }
+  ],
+  "total": {
+    "comments": {
+      "count": "X",
+      "my_hthreads_flags_hash": {},
+      "my_hthreads_votes_hash": {},
+      "offset": 0,
+      "order": [
+        {
+          "upvotes": "desc"
+        },
+        {
+          "created_at": "desc"
+        }
+      ],
+      "totals": {
+        "num_comments": X,
+        "num_threads": X
+      }
+    }
+  }
+}
+```
 
-````dlurl
-"downloadURL": "https://hanime.tv/downloads/<>"
-````
+### getComment/reply/reply
+
+To get reply from reply comments from hanime.tv/videos/hentai/XX
+
+> /getComment/reply/reply?id=(second reply id)
+
+```rescmt
+{
+  "comments": [
+    {
+      All of the comments
+    }
+  ],
+  "total": {
+    "comments": {
+      "count": "X",
+      "my_hthreads_flags_hash": {},
+      "my_hthreads_votes_hash": {},
+      "offset": 0,
+      "order": [
+        {
+          "upvotes": "desc"
+        },
+        {
+          "created_at": "desc"
+        }
+      ],
+      "totals": {
+        "num_comments": X,
+        "num_threads": X
+      }
+    }
+  }
+}
+```

@@ -1,0 +1,95 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Server Configuration
+
+We Provided The Configuration File and Now you can config your rate-limit your server.
+
+<Callout type="warning" emoji="❌">
+    Never Config the API URL, It might break the API for some routes.
+</Callout>
+
+## Rate-Limit Configuration
+
+If you want to protect your server from overloaded, you could configure the rate-limit for your server.  
+Our Default Rate-Limit is 100 request per minute *100/minute*, To Change the Rate-Limit, you can use the following configuration.
+
+**❌ Wrong Time Configuration Might Caused the Server to fail when you try to start it.**
+
+````config
+[serv_config]
+req = 100/minute
+search_req = 200/minute
+````
+I have separated req and search_req because the search_req have to request more search for the user than the req. 
+If you want to change the default config for your server, you can use the following configuration.
+
+````config
+[serv_config]
+req = (number)/(time)
+search_req = (number)/(time)
+````
+By Using [Flask-Limiter API](https://flask-limiter.readthedocs.io/en/stable/configuration.html#rate-limit-string-notation), You can configure the rate-limit with this type of time: 
+- second
+- minute 
+- hour
+- day 
+- month
+- year
+*OPTIONAL : You can add (s) to those if you want to make it plural*
+
+## Hosting Configuration
+
+### Locally
+
+If you want to host our own api and didnt want to spend money on server, 
+this is for you. No Config Needed for Local Hosting.
+
+*Required Python 3.9+*  
+
+Clone this repo
+> git clone github.com/NYT92/hanime-python-api.git
+
+Install all of the dependencies
+> pip install -r requirements.txt
+
+Run The main.py
+> python or python3 main.py
+
+### To Server
+
+#### Procfile Supported
+
+We have added Procfile and you can now deploy to any server like Heroku, Railway, etc. You can clone it and config the Procfile.
+Do you want to deploy HaniAPI to these server now?
+
+Deploy Via Railway  
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7DfVON?referralCode=jXbUTS)
+
+Deploy Via Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+#### Vercel
+
+We have Added The vercel.json and you can now deploy to Vercel. If you want a different build, you can clone it and config the vercel.json.
+Do you want to deploy HaniAPI to your vercel now?
+
+Deploy Via Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main/vercel)
+
+#### Other Server
+
+Dont want to deploy to another server other than the vercel or heroku? you can use Deta.sh.
+If you want to deploy to deta rights now?
+
+Deploy Via Deta.sh  
+
+[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/NYT92/hanime-python-api)
+
+**For AWS, GCP and AZURE, you might want to watch other tutorial and website documentation for more information.**
+
+#### Dockerfile Supported
+
+Im not familiar with docker yet... 

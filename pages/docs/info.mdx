@@ -11,22 +11,28 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
 
 | **Routes**             | **Rate Limits**    | **Methods** |
 | ---------------------- | ------------------ | ----------- |
-| /auth/login            | 75 req per minute  | GET         |
-| /auth/login/summary    | 75 req per minute  | GET         |
-| /auth/login/coins      | 75 req per minute  | GET         |
-| /auth/login/getsession | 75 req per minute  | GET         |
-| /auth/login/body       | 75 req per minute  | POST        |
-| /auth/coins/body       | 75 req per minute  | POST        |
+| /auth/login            | 100 req per minute | GET         |
+| /auth/login/summary    | 100 req per minute | GET         |
+| /auth/login/coins      | 100 req per minute | GET         |
+| /auth/login/getsession | 100 req per minute | GET         |
+| /auth/login/body       | 100 req per minute | POST        |
+| /auth/coins/body       | 100 req per minute | POST        |
 | ---------------------- | -----------------  | ----------- |
-| /getVideo              | 75 req per minute  | GET         |
-| /getVideo/premium      | 75 req per minute  | GET         |
-| /getInfo               | 75 req per minute  | GET         |
-| /getDownloadURL        | 75 req per minute  | GET         |
-| /getLanding            | 75 req per minute  | GET         |
-| /getComment            | 75 req per minute  | GET         |
+| /getVideo              | 100 req per minute | GET         |
+| /getVideo/premium      | 100 req per minute | GET         |
+| /getInfo               | 100 req per minute | GET         |
+| /getDownloadURL        | 100 req per minute | GET         |
+| /getLanding            | 100 req per minute | GET         |
+| /getComment            | 100 req per minute | GET         |
 | ---------------------- | -----------------  | ----------- |
 | /search                | 200 req per minute | POST        |
 | /search/req            | 200 req per minute | GET         |
+| ---------------------- | -----------------  | ----------- |
+| /browse                | 100 req per minute | GET         |
+| ---------------------- | -----------------  | ----------- |
+| /user                  | 100 req per minute | GET         |
+| ---------------------- | -----------------  | ----------- |
+| /community_upload      | 100 req per minute | GET/POST    |
 
 <Callout type="warning" emoji="⚠️">
   Bulk Request and Spam is not allowed. Please make sure to delay the request
@@ -34,50 +40,17 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
   server to block the IP.
 </Callout>
 
-## Usage (RapidAPI)
-
-You can now use RapidAPI to request API from the server without hosting your own one.
-
-**Read First** : This Service is limited and there will be no Auth method due to security issues.
-
-### Free Version
-
-**Monthly Usage** : 500 Per Month
-
-| **Routes**             | **Rate Limits**   | **Methods** |
-| ---------------------- | ----------------- | ----------- |
-| /getVideo              | 75 req per minute | GET         |
-| /getVideo/premium      | 75 req per minute | GET         |
-| /getInfo               | 75 req per minute | GET         |
-| /getComment            | 75 req per minute | GET         |
-| ---------------------- | ----------------- | ----------- |
-| /search                | 75 req per minute | POST        |
-| /search/req            | 75 req per minute | GET         |
-
-### Paid Version
-
-**Monthly Usage** : Unlimited
-
-| **Routes**             | **Rate Limits**    | **Methods** |
-| ---------------------- | ------------------ | ----------- |
-| /getVideo              | 250 req per minute | GET         |
-| /getVideo/premium      | 250 req per minute | GET         |
-| /getInfo               | 250 req per minute | GET         |
-| /getComment            | 250 req per minute | GET         |
-| ---------------------- | -----------------  | ----------- |
-| /search                | 250 req per minute | POST        |
-| /search/req            | 250 req per minute | GET         |
-
 ## HTTP Response
 
-| **Status Code** | **Description**           |
-| --------------- | ------------------------- |
-| 200             | Success                   |
-| 401             | Unauthorized              |
-| 403             | Forbidden                 |
-| 404             | Not Found                 |
-| 500             | Internal Server Error     |
-| 503             | Server Offline            |
+| **Status Code** | **Description**       |
+| --------------- | --------------------- |
+| 200             | Success               |
+| 401             | Unauthorized          |
+| 403             | Forbidden             |
+| 404             | Not Found             |
+| 405             | Methods Not Allowed   |
+| 500             | Internal Server Error |
+| 503             | Server Offline        |
 
 ## Disclaimer
 
