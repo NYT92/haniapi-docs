@@ -19,12 +19,6 @@ This API can use it to search for videos, description, tags, and more. You can s
 The reason that we use body params is because we want to make the search more flexible and easy to use. ALSO
 you wont waste your time to input the search query in the url.
 
-<Callout>
-  Those request can be blank and it still giving you search results.
-</Callout>
-
-For Non Self host User : Before using the search, Read this [Info](docs/info#usage) before you can use it.
-
 Body Params :
 
 ```req
@@ -44,13 +38,8 @@ Body Params :
 If you are not using the body request, you can use the query parameters to get the search.  
 This routes is limited so you cannot add tag, blacklist and brands search
 
-<Callout>
-  Those request can be blank and it still giving you search results.
-</Callout>
 
-For Non Self host User : Before using the search, Read this [Info](info#usage) before you can use it.
-
-> /search/req
+> /search
 
 Available Query Parameters :
 
@@ -60,13 +49,6 @@ p= Page
 ordering=  Ordering from the search (asc or desc)  
 order_by=  Order_by type of item
 ````
-
-## Error
-
-Wrong Typo Might be caused by the search body request.  
-It's will show the 500 error message.
-
-Check the body request before requesting to the server.
 
 ## Tags
 

@@ -11,34 +11,23 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
 
 | **Routes**             | **Rate Limits**    | **Methods** |
 | ---------------------- | ------------------ | ----------- |
-| /auth/login            | 100 req per minute | GET         |
-| /auth/login/summary    | 100 req per minute | GET         |
-| /auth/login/coins      | 100 req per minute | GET         |
-| /auth/login/getsession | 100 req per minute | GET         |
-| /auth/login/body       | 100 req per minute | POST        |
-| /auth/coins/body       | 100 req per minute | POST        |
+| /auth/login            | 180 req per minute | POST        |
+| /auth/login/summary    | 180 req per minute | POST        |
+| /auth/getcoins         | 180 req per minute | POST        |
 | ---------------------- | -----------------  | ----------- |
-| /getVideo              | 100 req per minute | GET         |
-| /getVideo/premium      | 100 req per minute | GET         |
-| /getInfo               | 100 req per minute | GET         |
-| /getDownloadURL        | 100 req per minute | GET         |
-| /getLanding            | 100 req per minute | GET         |
-| /getComment            | 100 req per minute | GET         |
+| /getVideo              | 180 req per minute | GET         |
+| /getInfo               | 180 req per minute | GET         |
+| /getComment            | 180 req per minute | GET         |
+| /getLanding            | 180 req per minute | GET         |
 | ---------------------- | -----------------  | ----------- |
-| /search                | 200 req per minute | POST        |
-| /search/req            | 200 req per minute | GET         |
+| /search                | 120 req per minute | GET/POST    |
 | ---------------------- | -----------------  | ----------- |
-| /browse                | 100 req per minute | GET         |
+| /browse                | 180 req per minute | GET         |
 | ---------------------- | -----------------  | ----------- |
-| /user                  | 100 req per minute | GET         |
+| /user                  | 180 req per minute | GET         |
 | ---------------------- | -----------------  | ----------- |
-| /community_upload      | 100 req per minute | GET/POST    |
+| /community_upload      | 180 req per minute | GET/POST    |
 
-<Callout type="warning" emoji="⚠️">
-  Bulk Request and Spam is not allowed. Please make sure to delay the request
-  from your client side. If Too Much Request to the server, it would causes the
-  server to block the IP.
-</Callout>
 
 ## HTTP Response
 
@@ -46,9 +35,9 @@ It is free to use and you dont have to pay for it. But There is a rate limit for
 | --------------- | --------------------- |
 | 200             | Success               |
 | 401             | Unauthorized          |
-| 403             | Forbidden             |
 | 404             | Not Found             |
 | 405             | Methods Not Allowed   |
+| 429             | Too many request      |
 | 500             | Internal Server Error |
 | 503             | Server Offline        |
 

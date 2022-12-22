@@ -2,17 +2,15 @@ import Callout from 'nextra-theme-docs/callout'
 
 # API
 
-All of the get(API) Methods
-
-For Non Self host User : Before using the getAPI, Read this [Info](docs/info#usage) before you can use it.
+Get information and stream url from Hanime.tv.
 
 ## /getVideo
 
 To get video from the hanime website
 
-> /getVideo?id=(HANIME SLUG or VIDEO ID)
+> /getVideo/(HANIME SLUG or VIDEO ID)
 
-To get 1080p, You must add token to the headers and To get your account session token go to [getSession](/docs/authentication/#authlogingetsession)
+To get 1080p, You must have hanime premium and session token. (You can get it from /auth/login)
 
 **Headers**
 > Token : (Your Account Token)
@@ -29,31 +27,15 @@ To get 1080p, You must add token to the headers and To get your account session 
 
 ## /getVideo/player
 
-Create an embedded iframe or player url in the api with [nsplayer](https://player.nscdn.ml)
-
-<Callout type="warning" emoji="❌">
-  New Hanime Video Will be Work on this player but will not be available in the
-  older upload due to the CORS error. If you want it to work, you downloads any cors extension.
-</Callout>
-
-> /getVideo/player?id=(HANIME SLUG or VIDEO ID)
-
-```vid
-{
-  "downloadURL":"https://hanime.tv/downloads/<>",
-  "iframe_api":"iframe with player url",
-  "url":"https://hanime.tv/videos/hentai/<>"
-  "player_url": "player_url",
-  "main_url":"https://player.nscdn.ml"
-}
-
+```dep
+DEPRECATED
 ```
 
 ## getInfo
 
-To get Information about Hanime Video
+To get hentai information from Hanime
 
-> /getInfo?id=(HANIME SLUG or VIDEO ID)
+> /getInfo/(HANIME SLUG or VIDEO ID)
 
 ```info
 {
